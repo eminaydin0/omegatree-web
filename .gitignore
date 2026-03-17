@@ -1,0 +1,26 @@
+# Bağımlılıklar
+node_modules/
+
+# Build çıktısı
+dist/
+build/
+
+# Ortam / env
+.env
+.env.local
+.env.*.local
+
+# Loglar ve önbellek
+*.log
+npm-debug.log*
+.cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

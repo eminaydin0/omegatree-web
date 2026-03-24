@@ -4,12 +4,16 @@ import { IMG } from '../utils/helpers'
 
 const slide = (
   <div className="testimonials-content">
-    <figure><img src={IMG('quote-icon.png')} alt="quote" className="img-fluid" /></figure>
-    <h2>Trusted from our <span>clients</span></h2>
+    <figure>
+      <img
+        src={IMG('quote-icon.png')}
+        alt="" className="img-fluid" />
+    </figure>
+    <h2>Danışanlarımızın <span>güveni</span></h2>
     <div className="testimonials-inner-content">
-      <p className="col-lg-11 pl-0">In enim justo, rhoncus ut, imperdiet a, ven enatis vitae, justoullam dictum felis eu pede mollis pretium teger tinciduntras dapibu imperdiets Vivamus elem.</p>
-      <h4 className="d-block auther-name">Samantha Harper</h4>
-      <span className="d-block">CEO - Company</span>
+      <p className="col-lg-11 pl-0">OmegaTree ile metabolik sağlığınızı biyobelirteçler üzerinden objektif olarak takip edebilir; kişiselleştirilmiş beslenme ve yaşam tarzı önerileriyle iyileşme sürecinizi destekleyebilirsiniz. Sonuçlar bilimsel temele dayanır, raporlar uzmanlar için yapılandırılmıştır.</p>
+      <h4 className="d-block auther-name">OmegaTree</h4>
+      <span className="d-block">Bilim temelli metabolik değerlendirme</span>
     </div>
   </div>
 )
@@ -21,12 +25,26 @@ export default function Testimonials() {
         <Row>
           <Col lg={6} md={6}>
             <div className="tastimonials-left-con position-relative wow slideInLeft" data-wow-duration="0.8s">
-              <figure className="mb-0"><img src={IMG('tastimonials-img.png')} alt="testimonials" className="img-fluid" /></figure>
+              <figure className="mb-0">
+                <img
+                  src={IMG('tastimonials-img.png')}
+                  alt="" className="img-fluid"
+                />
+              </figure>
             </div>
           </Col>
           <Col lg={6} md={6}>
             <div className="wow slideInRight" data-wow-duration="0.8s">
-              <Carousel indicators={false} prevIcon={<span className="fas fa-arrow-left d-flex align-items-center justify-content-center" />} nextIcon={<span className="fas fa-arrow-right d-flex align-items-center justify-content-center" />}>
+              <Carousel
+                indicators={false}
+                prevIcon=
+                {
+                  <span className="fas fa-arrow-left d-flex align-items-center  justify-content-center" />}
+                nextIcon=
+                {
+                  <span className="fas fa-arrow-right d-flex align-items-center justify-content-center" />
+                }
+              >
                 <Carousel.Item>{slide}</Carousel.Item>
                 <Carousel.Item>{slide}</Carousel.Item>
                 <Carousel.Item>{slide}</Carousel.Item>

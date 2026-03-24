@@ -307,6 +307,9 @@
     .sloution-box-right-content p {
         margin-bottom: 16px;
     }
+    .help-right-con .help-text{
+        max-width: 100%;
+    }
     .generic a {
         padding: 12px 36px;
     }
@@ -701,6 +704,9 @@
     .help-left-con{
         margin-bottom: 15px;
     }
+    .help-right-con .help-text{
+        text-align: left;
+    }
     .sloution-box-right-content p {
         margin-bottom: 12px;
     }
@@ -919,6 +925,10 @@
     .help-left-con img[alt="help-left-img"] {
         width: 320px;
     }
+    .help-right-con .help-text{
+        font-size: 15px;
+        line-height: 23px;
+    }
     .designer-con {
         right: -4px;
         top: 88px;
@@ -1074,5 +1084,100 @@
     .banner-img-detail,
     .service-box-item{
         border-radius: 0 38px 38px 38px;
+    }
+}
+
+/* OmegaTree — Özelliklerimiz (Services) */
+@media only screen and (max-width: 991px) {
+    .service-con.omegatree-features .ozellik-intro {
+        margin-bottom: 1.75rem;
+    }
+    .service-con.omegatree-features .ozellik-card {
+        padding: 28px 24px 32px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .service-con.omegatree-features {
+        padding-top: 2.75rem;
+    }
+    .service-con.omegatree-features .ozellik-intro > p {
+        font-size: 16px;
+    }
+    .service-con.omegatree-features .ozellik-card h4 {
+        padding-right: 2.25rem;
+        font-size: 17px;
+    }
+}
+
+/* OmegaTree — çözüm kutusu (SolutionBox) taşma ve padding */
+@media only screen and (max-width: 991px) {
+    .sloution-box-con.omegatree-solution .sloution-box-content {
+        padding: 52px 32px;
+    }
+    .sloution-box-con.omegatree-solution .sloution-box-right-content {
+        padding-left: 0;
+        text-align: center;
+    }
+    .sloution-box-con.omegatree-solution .solution-icon-wrap {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .sloution-box-con.omegatree-solution .solution-bullets li {
+        text-align: left;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .sloution-box-con.omegatree-solution .sloution-box-content {
+        padding: 44px 24px;
+    }
+    .sloution-box-con.omegatree-solution .solution-bullets {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* OmegaTree hero — üst boşluk ve alt bölüm oranı */
+@media only screen and (max-width: 1199px) {
+    .header-and-banner-con.omegatree-hero .banner-main-con {
+        padding-top: 20px;
+        padding-bottom: 72px;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .header-and-banner-con.omegatree-hero .header-main-con {
+        padding: 10px 0 6px;
+    }
+    .header-and-banner-con.omegatree-hero .banner-main-con {
+        padding-top: 14px;
+        padding-bottom: 52px;
+    }
+    .header-and-banner-con.omegatree-hero .banner-img-detail {
+        bottom: 28px;
+        height: 240px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .header-and-banner-con.omegatree-hero .banner-left-con .banner-hero-title br {
+        display: block;
+    }
+    .header-and-banner-con.omegatree-hero .banner-main-con {
+        padding-top: 10px;
+        padding-bottom: 36px;
+    }
+    .header-and-banner-con.omegatree-hero .banner-left-con .banner-hero-title {
+        margin-bottom: 12px;
+    }
+    .header-and-banner-con.omegatree-hero .banner-left-con .banner-hero-lead {
+        margin-bottom: 16px;
+    }
+    .header-and-banner-con.omegatree-hero .banner-left-con .banner-hero-cta a {
+        padding: 12px 22px 11px;
+        font-size: 15px;
+    }
+    .header-and-banner-con.omegatree-hero .banner-left-con .banner-step-num {
+        margin-top: 14px;
+        font-size: 18px;
+    }
+    .header-and-banner-con.omegatree-hero .banner-left-con .banner-step-num small {
+        font-size: 18px;
     }
 }

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { WOW } from 'wowjs'
+import React from 'react'
 import {
   HeaderBanner,
   SolutionBox,
@@ -13,14 +12,6 @@ import {
 } from './components'
 
 export default function App() {
-  useEffect(() => {
-    const t = setTimeout(() => {
-      const wow = new WOW({ live: false, offset: 0, mobile: true })
-      wow.init()
-    }, 100)
-    return () => clearTimeout(t)
-  }, [])
-
   return (
     <>
       <HeaderBanner />

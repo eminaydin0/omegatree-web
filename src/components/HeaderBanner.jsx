@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
+import { Navbar, Container, Row, Col } from 'react-bootstrap'
+import { SITE, SECTION } from '../config/site'
 import { IMG } from '../utils/helpers'
-
-const LOGO = 'OmegaTree_23Şubat_V1_Beyaz.jpg'
+import { HeaderNavLinks } from './NavLinks'
 
 export default function HeaderBanner() {
   const [expanded, setExpanded] = useState(false)
@@ -21,7 +21,7 @@ export default function HeaderBanner() {
             <div className="header-con">
               <Navbar expand="lg" className="navbar-light p-0">
                 <Navbar.Brand href="#" className="p-0">
-                  <img src={IMG(LOGO)} alt="OmegaTree" className="img-fluid" style={{ maxHeight: 48 }} onError={(e) => { e.target.src = IMG('logo-img.png') }} />
+                  <img src={IMG(SITE.logoFile)} alt={SITE.name} className="img-fluid" style={{ maxHeight: 48 }} onError={(e) => { e.target.src = IMG(SITE.logoFallback) }} />
                 </Navbar.Brand>
                 <Navbar.Toggle
                   aria-controls="navbarSupportedContent"
@@ -29,23 +29,7 @@ export default function HeaderBanner() {
                   className="p-0"
                 />
                 <Navbar.Collapse id="navbarSupportedContent" in={expanded} className="justify-content-end">
-                  <Nav as="ul" className="navbar-nav">
-                    <Nav.Item as="li">
-                      <Nav.Link href="#" className="p-0 pl-0 active"><span className="d-block">01</span> Ana Sayfa</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                      <Nav.Link href="#ozellikler" className="p-0"><span className="d-block">02</span> Özellikler</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                      <Nav.Link href="#nasil-calisir" className="p-0"><span className="d-block">03</span> Nasıl Çalışır?</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                      <Nav.Link href="#hakkimizda" className="p-0"><span className="d-block">04</span> Hakkımızda</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item as="li">
-                      <Nav.Link href="#iletisim" className="p-0"><span className="d-block">05</span> İletişim</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
+                  <HeaderNavLinks />
                 </Navbar.Collapse>
               </Navbar>
             </div>
@@ -63,9 +47,9 @@ export default function HeaderBanner() {
                     <h1 className="banner-hero-title mb-0">Metabolik Sağlığınız İçin <br />Kanıta Dayalı Bir Değerlendirme</h1>
                     <p className="banner-hero-lead">MAS-10® ile evde güvenle aldığınız sabit hacimli kan örneği, hedefli metabolomik analizle anlam kazanır. OmegaTree bu verileri beslenme ve yaşam tarzınızla birleştirerek size özel, uygulanabilir ve bilim temelli bir beslenme–yaşam tarzı planı üretir.</p>
                     <div className="get-started banner-hero-cta d-flex flex-wrap align-items-center justify-content-md-start justify-content-center">
-                      <a href="#ozellikler">Özellikler</a>
+                      <a href={`#${SECTION.features}`}>Özellikler</a>
                       <span className="banner-hero-cta-sep d-inline-block" aria-hidden="true">|</span>
-                      <a href="#nasil-calisir">Nasıl Çalışır?</a>
+                      <a href={`#${SECTION.howItWorks}`}>Nasıl Çalışır?</a>
                     </div>
                     <span className="banner-step-num d-block">01<small>.</small></span>
                   </div>

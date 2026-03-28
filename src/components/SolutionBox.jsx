@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { SECTION } from '../config/site'
 import { IMG } from '../utils/helpers'
 
 const bullets = [
@@ -56,7 +57,7 @@ export default function SolutionBox() {
                     <li key={i}>{t}</li>
                   ))}
                 </ul>
-                <div className="generic"><a href="#iletisim">İletişime Geçin</a></div>
+                <div className="generic"><a href={`#${SECTION.contact}`}>İletişime Geçin</a></div>
               </div>
             </Col>
           </Row>

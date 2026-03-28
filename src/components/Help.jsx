@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { SECTION } from '../config/site'
 import { IMG } from '../utils/helpers'
 
 export default function Help() {
@@ -20,7 +21,7 @@ export default function Help() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="w-100 float-left padding-top padding-bottom help-con overflow" id="nasil-calisir">
+    <section ref={sectionRef} className="w-100 float-left padding-top padding-bottom help-con overflow" id={SECTION.howItWorks}>
       <Container>
         <div className="help-box-content">
           <Row>
@@ -54,7 +55,7 @@ export default function Help() {
                 <h2><span className="position-relative">Adım Adım Süreç</span></h2>
                 <p className="help-text"><strong>Adım 1 — Evde Kan Örneği Alın:</strong> MAS-10® kitiyle dakikalar içinde küçük bir kan örneği alarak bize gönderirsiniz. <strong>Adım 2 — Laboratuvar Analizi:</strong> Örneğiniz LC-MS/MS ve GC-MS platformunda hedefli metabolomik analizden geçer. <strong>Adım 3 — Entegrasyon:</strong> Biyobelirteçleriniz beslenme, uyku, yaşam tarzı ve antropometrik bilgilerinizle bir arada değerlendirilir.</p>
                 <p className="help-text"><strong>Adım 4 — Kişisel Sağlık Raporunuz:</strong> Biyolojik yaş, inflamasyon, metabolik riskler, beslenme kalitesi ve yağ asidi dengesi net bir rapora dönüştürülür. <strong>Adım 5 — Beslenme ve Yaşam Tarzı Önerileri:</strong> Bulgularınıza göre bilim temelli, günlük hayatta uygulanabilir öneriler oluşturulur.</p>
-                <div className="generic"><a href="#ozellikler">Özelliklere Göz Atın</a></div>
+                <div className="generic"><a href={`#${SECTION.features}`}>Özelliklere Göz Atın</a></div>
               </div>
             </Col>
           </Row>

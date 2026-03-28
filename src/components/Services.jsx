@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { SECTION } from '../config/site'
 import { IMG } from '../utils/helpers'
 
 const icons = ['service-icon1.png', 'service-icon2.png', 'service-icon3.png']
@@ -34,7 +35,7 @@ export default function Services() {
     <section
       ref={sectionRef}
       className={`w-100 float-left service-con omegatree-features padding-bottom ${inView ? 'ozellik-section--visible' : ''}`}
-      id="ozellikler"
+      id={SECTION.features}
     >
       <Container>
         <div className="service-inner-con position-relative dotted-img">
@@ -60,7 +61,7 @@ export default function Services() {
                       <h4>{item.title}</h4>
                       <p>{item.text}</p>
                       <div className="ozellik-card__cta">
-                        <a href="#iletisim">Detaylı Bilgi <span className="fas fa-arrow-right" /></a>
+                        <a href={`#${SECTION.contact}`}>Detaylı Bilgi <span className="fas fa-arrow-right" /></a>
                       </div>
                     </div>
                   </div>

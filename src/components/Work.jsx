@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Modal } from 'react-bootstrap'
+import { SECTION } from '../config/site'
 import { IMG } from '../utils/helpers'
 
 const items = [
@@ -13,7 +14,7 @@ export default function Work() {
   const [modalId, setModalId] = useState(null)
   return (
     <>
-      <section className="w-100 float-left work-con padding-top padding-bottom" id="work">
+      <section className="w-100 float-left work-con padding-top padding-bottom" id={SECTION.work}>
         <Container>
           <div className="genric-heading text-center">
             <h2 className="position-relative">Beslenme ve Metabolik Sağlık</h2>

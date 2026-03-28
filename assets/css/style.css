@@ -859,6 +859,17 @@ body {
 }
 /**** tastimonials section****/
 /****information section***/
+.information-con.omegatree-features .genric-heading.ozellik-intro {
+	margin-bottom: clamp(2rem, 5vw, 3.25rem);
+}
+.information-con.omegatree-features .hakkimizda-values-title {
+	font-weight: 700;
+	color: var(--primary--color);
+	line-height: 1.35;
+	max-width: 36rem;
+	margin-left: auto;
+	margin-right: auto;
+}
 .information-inner-con:after{
 	background: url(../image/human-img2.png) no-repeat top left;
 	width: 500px;
@@ -870,6 +881,23 @@ body {
 }
 .information-inner-con .service-box-item:hover{
 	background: var(--accent-color);
+}
+/* OmegaTree kart hover’ı (beyaz zemin) Hakkımızda’da yeşil + beyaz yazı ile çakışıyordu */
+.information-con.omegatree-features .information-inner-con .ozellik-card-outer--in:hover .ozellik-card {
+	background: var(--accent-color);
+	border-color: rgba(255, 255, 255, 0.35);
+	box-shadow: 0 20px 50px rgba(14, 21, 29, 0.18);
+}
+.information-con.omegatree-features .information-inner-con .ozellik-card-outer--in:hover .ozellik-card .ozellik-card__num {
+	color: rgba(255, 255, 255, 0.95);
+	opacity: 1;
+}
+.information-con.omegatree-features .information-inner-con .ozellik-card-outer--in:hover .ozellik-card .ozellik-card__icon {
+	background: linear-gradient(155deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.1));
+}
+.information-con.omegatree-features .information-inner-con .ozellik-card-outer--in:hover .ozellik-card h4,
+.information-con.omegatree-features .information-inner-con .ozellik-card-outer--in:hover .ozellik-card p {
+	color: var(--secondary--color);
 }
 .information-inner-con .service-box-item:hover a{
 	background-color: var(--secondary--color);

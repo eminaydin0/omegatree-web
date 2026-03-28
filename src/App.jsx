@@ -1,28 +1,6 @@
 import React from 'react'
-import {
-  HeaderBanner,
-  SolutionBox,
-  Services,
-  Help,
-  Clients,
-  Work,
-  Testimonials,
-  Information,
-  Footer,
-} from './components'
+import HomePage from './pages/HomePage'
 
 export default function App() {
-  return (
-    <>
-      <HeaderBanner />
-      <SolutionBox />
-      <Services />
-      <Help />
-      <Clients />
-      <Work />
-      <Testimonials />
-      <Information />
-      <Footer />
-    </>
-  )
+  return <HomePage />
 }

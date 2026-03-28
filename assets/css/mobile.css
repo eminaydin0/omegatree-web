@@ -1107,6 +1107,10 @@
         padding-right: 2.25rem;
         font-size: 17px;
     }
+    .information-con.omegatree-features .hakkimizda-values-title {
+        font-size: 17px;
+        line-height: 1.35;
+    }
 }
 
 /* OmegaTree — çözüm kutusu (SolutionBox) taşma ve padding */

@@ -96,14 +96,6 @@ export default function Process() {
             </a>
           </p>
         </div>
-
-        <div className="process-illustration-wrap ot-reveal-scale ot-delay-4">
-          <img
-            src="/assets/images/illustration.png"
-            alt=""
-            className="process-illustration-img"
-          />
-        </div>
       </div>
     </section>
   )

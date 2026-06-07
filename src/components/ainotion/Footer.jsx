@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-<footer id="dtr-footer">
+<footer id="dtr-footer" className="site-footer">
             <div className="container"> 
                 
                 
@@ -55,8 +55,8 @@ export default function Footer() {
                     <div className="col-12 col-sm-6 col-lg-3">
                         <h5>İletişim</h5>
                         <p>Yıldırım Beyazıt Mah. Aşık Veysel Blv. Erciyes Üniversitesi Teknoloji Geliştirme Bölgesi, 38030 Melikgazi/Kayseri</p>
-                        <p><a href="mailto:info@omegatree.com.tr"><i className="icon-envelope dtr-mr-5 color-blue"></i> info@omegatree.com.tr</a></p>
-                        <p><a href="tel:+905462257467"><i className="icon-phone-alt dtr-mr-5 color-blue"></i> +90 546 225 74 67</a></p>
+                        <p><a href="mailto:info@omegatree.com.tr"><i className="icon-envelope dtr-mr-5 footer-icon"></i> info@omegatree.com.tr</a></p>
+                        <p><a href="tel:+905462257467"><i className="icon-phone-alt dtr-mr-5 footer-icon"></i> +90 546 225 74 67</a></p>
                     </div>
                      
                     

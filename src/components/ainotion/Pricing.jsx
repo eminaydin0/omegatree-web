@@ -1,13 +1,17 @@
 export default function Pricing() {
   return (
     <>
-<section id="pricing" className="dtr-section dtr-py-100">
+<section id="pricing" className="dtr-section dtr-py-100 pricing-section">
             <div className="container"> 
                 
                 
-                <div className="dtr-styled-heading text-center">
-                    <h2>Bilimsel Güvence ile Sunulan Hizmetler</h2>
-                    <p>OmegaTree metabolomik değerlendirme altyapısının sunduğu<br />
+                <div className="dtr-styled-heading text-center pricing-section-header">
+                    <p className="about-eyebrow">Hizmetler</p>
+                    <h2 className="about-title">
+                      Bilimsel Güvence ile
+                      <span className="about-title-accent"> Sunulan Hizmetler</span>
+                    </h2>
+                    <p className="pricing-lead">OmegaTree metabolomik değerlendirme altyapısının sunduğu<br />
                         temel bilimsel ve klinik hizmet başlıkları</p>
                 </div>
                  
@@ -202,7 +206,7 @@ export default function Pricing() {
                  
                 
                 
-                <h3 className="dtr-mt-20 dtr-mb-40 text-center">Sık Sorulan Sorular</h3>
+                <h3 className="pricing-faq-title dtr-mt-20 dtr-mb-40 text-center">Sık Sorulan Sorular</h3>
                 <div className="row"> 
                     
                     

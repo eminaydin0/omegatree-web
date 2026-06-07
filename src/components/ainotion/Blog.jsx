@@ -1,13 +1,17 @@
 export default function Blog() {
   return (
     <>
-<section id="blog" className="dtr-section dtr-py-100">
+<section id="blog" className="dtr-section dtr-py-100 blog-section">
             <div className="container"> 
                 
                 
-                <div className="dtr-styled-heading text-center">
-                    <h2>MAS-10® ve <span className="color-blue">Metabolomik Bilim</span></h2>
-                    <p className="dtr-mt-20">OmegaTree’nin temel teknolojileri ve platform altyapısı hakkında kısa bilgiler.</p>
+                <div className="dtr-styled-heading text-center blog-section-header">
+                    <p className="about-eyebrow">Bilim &amp; Teknoloji</p>
+                    <h2 className="about-title">
+                      MAS-10® ve
+                      <span className="about-title-accent"> Metabolomik Bilim</span>
+                    </h2>
+                    <p className="blog-lead dtr-mt-20">OmegaTree’nin temel teknolojileri ve platform altyapısı hakkında kısa bilgiler.</p>
                 </div>
                  
                 

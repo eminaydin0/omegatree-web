@@ -1,7 +1,11 @@
+import useScrollReveal from '../../hooks/useScrollReveal'
+
 export default function Footer() {
+  const footerRef = useScrollReveal({ threshold: 0.08 })
+
   return (
-    <footer id="dtr-footer" className="site-footer">
-      <div className="container">
+    <footer id="dtr-footer" ref={footerRef} className="site-footer ot-reveal-section">
+      <div className="container ot-reveal ot-delay-1">
         <div className="row">
           <div className="col-12 col-sm-6 col-lg-5 small-device-space">
             <img src="/assets/images/logo-dark.png" alt="OmegaTree" className="dtr-mb-30 footer-logo" />

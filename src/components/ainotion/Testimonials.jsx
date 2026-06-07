@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import useScrollReveal from '../../hooks/useScrollReveal'
 
 const stats = [
   { value: '1000+', label: 'Tamamlanan Metabolomik Analiz' },
@@ -26,26 +27,8 @@ const appScreens = [
 ]
 
 export default function Testimonials() {
-  const sectionRef = useRef(null)
+  const sectionRef = useScrollReveal()
   const [activeScreen, setActiveScreen] = useState(0)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add('is-revealed')
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-
-    observer.observe(section)
-    return () => observer.disconnect()
-  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -59,7 +42,7 @@ export default function Testimonials() {
     <section
       ref={sectionRef}
       id="testimonial"
-      className="dtr-section dtr-py-100 omegatree-stats-section"
+      className="dtr-section dtr-py-100 omegatree-stats-section ot-reveal-section"
     >
       <div className="container">
         <div className="dtr-styled-heading text-center omegatree-stats-header">
@@ -87,10 +70,10 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="omegatree-app-showcase">
+      <div className="omegatree-app-showcase ot-reveal ot-delay-3">
         <div className="omegatree-app-stage">
           <div className="container omegatree-app-stage-inner">
-            <div className="omegatree-app-stage-content stats-animate stats-animate-7">
+            <div className="omegatree-app-stage-content">
               <p className="omegatree-app-eyebrow">OmegaTree Platform</p>
               <h3 className="omegatree-app-title">
                 Kit takibi, stok ve raporlama — tek panelde
@@ -125,7 +108,7 @@ export default function Testimonials() {
             </div>
           </div>
 
-          <div className="omegatree-app-stage-visual" aria-hidden="true">
+          <div className="omegatree-app-stage-visual ot-reveal-right ot-delay-4" aria-hidden="true">
             <div className="omegatree-app-browser">
               <div className="omegatree-app-browser-bar">
                 <span></span>

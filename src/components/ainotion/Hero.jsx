@@ -1,4 +1,8 @@
+import useScrollReveal from '../../hooks/useScrollReveal'
+
 export default function Hero() {
+  const clientsRef = useScrollReveal({ threshold: 0.2 })
+
   return (
     <>
       <section
@@ -23,16 +27,10 @@ export default function Hero() {
                   bilim temelli bir <em>beslenme–yaşam tarzı</em> planına dönüştürür.
                 </p>
                 <div className="hero-actions hero-animate hero-animate-4">
-                  <a
-                    href="#features"
-                    className="dtr-scroll-link hero-btn hero-btn-primary"
-                  >
+                  <a href="#features" className="dtr-scroll-link hero-btn hero-btn-primary">
                     Özellikler
                   </a>
-                  <a
-                    href="#how-it-works"
-                    className="dtr-scroll-link hero-btn hero-btn-outline"
-                  >
+                  <a href="#how-it-works" className="dtr-scroll-link hero-btn hero-btn-outline">
                     Nasıl Çalışır?
                   </a>
                 </div>
@@ -50,40 +48,43 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="dtr-section dtr-py-50">
-            <div className="container"> 
-                
-                
-                <div className="row">
-                    <div className="col-12 col-md-10 offset-md-1"> 
-                        
-                        
-                        <div className="dtr-slick-slider dtr-img-slider-6col"> 
-                            
-                            <div> <img src="/assets/images/client-2.png" alt="image" /> </div>
-                            
-                            <div> <img src="/assets/images/client-1.png" alt="image" /> </div>
-                            
-                            <div> <img src="/assets/images/client-3.png" alt="image" /> </div>
-                            
-                            <div> <img src="/assets/images/client-4.png" alt="image" /> </div>
-                            
-                            <div> <img src="/assets/images/client-5.png" alt="image" /> </div>
-                            
-                            <div> <img src="/assets/images/client-6.png" alt="image" /> </div>
-                            
-                            <div> <img src="/assets/images/client-2.png" alt="image" /> </div>
-                            
-                            <div> <img src="/assets/images/client-4.png" alt="image" /> </div>
-                        </div>
-                         
-                        
-                    </div>
+      <section
+        ref={clientsRef}
+        className="dtr-section dtr-py-50 hero-clients-section ot-reveal-section"
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-10 offset-md-1">
+              <div className="dtr-slick-slider dtr-img-slider-6col ot-reveal ot-delay-1">
+                <div>
+                  <img src="/assets/images/client-2.png" alt="image" />
                 </div>
-                 
-                
+                <div>
+                  <img src="/assets/images/client-1.png" alt="image" />
+                </div>
+                <div>
+                  <img src="/assets/images/client-3.png" alt="image" />
+                </div>
+                <div>
+                  <img src="/assets/images/client-4.png" alt="image" />
+                </div>
+                <div>
+                  <img src="/assets/images/client-5.png" alt="image" />
+                </div>
+                <div>
+                  <img src="/assets/images/client-6.png" alt="image" />
+                </div>
+                <div>
+                  <img src="/assets/images/client-2.png" alt="image" />
+                </div>
+                <div>
+                  <img src="/assets/images/client-4.png" alt="image" />
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

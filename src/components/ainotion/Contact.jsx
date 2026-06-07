@@ -1,3 +1,5 @@
+import useScrollReveal from '../../hooks/useScrollReveal'
+
 const contactItems = [
   {
     icon: 'icon-phone-alt',
@@ -21,10 +23,16 @@ const contactItems = [
 ]
 
 export default function Contact() {
+  const sectionRef = useScrollReveal()
+
   return (
-    <section id="contact" className="dtr-section dtr-py-100 contact-section">
+    <section
+      ref={sectionRef}
+      id="contact"
+      className="dtr-section dtr-py-100 contact-section ot-reveal-section"
+    >
       <div className="container">
-        <div className="dtr-styled-heading text-center contact-section-header">
+        <div className="dtr-styled-heading text-center contact-section-header ot-reveal ot-delay-1">
           <p className="section-eyebrow">İletişim</p>
           <h2 className="section-title contact-title">
             İletişime
@@ -36,12 +44,10 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="contact-layout">
+        <div className="contact-layout ot-reveal-scale ot-delay-2">
           <aside className="contact-info-panel" aria-label="İletişim bilgileri">
             <h3 className="contact-info-title">Bize Ulaşın</h3>
-            <p className="contact-info-desc">
-              Size en kısa sürede dönüş yapacağız.
-            </p>
+            <p className="contact-info-desc">Size en kısa sürede dönüş yapacağız.</p>
 
             <ul className="contact-info-list">
               {contactItems.map((item) => (

@@ -1,4 +1,5 @@
 import useSlickSlider from '../../hooks/useSlickSlider'
+import useScrollReveal from '../../hooks/useScrollReveal'
 
 const steps = [
   {
@@ -55,16 +56,18 @@ const processSliderOptions = {
 }
 
 export default function Process() {
+  const sectionRef = useScrollReveal()
   const sliderRef = useSlickSlider(processSliderOptions)
 
   return (
     <section
+      ref={sectionRef}
       id="how-it-works"
-      className="dtr-section dtr-py-100 bg-light-blue process-section"
+      className="dtr-section dtr-py-100 bg-light-blue process-section ot-reveal-section"
     >
       <div className="container process-section-inner">
         <div className="process-top">
-          <div className="dtr-styled-heading text-center process-section-header">
+          <div className="dtr-styled-heading text-center process-section-header ot-reveal ot-delay-1">
             <p className="section-eyebrow">Nasıl Çalışır?</p>
             <h2 className="section-title">
               Metabolik Değerlendirme
@@ -72,7 +75,7 @@ export default function Process() {
             </h2>
           </div>
 
-          <div ref={sliderRef} className="dtr-slick-slider process-slider">
+          <div ref={sliderRef} className="dtr-slick-slider process-slider ot-reveal ot-delay-2">
             {steps.map((step) => (
               <div key={step.number}>
                 <div className="process-slide">
@@ -86,7 +89,7 @@ export default function Process() {
             ))}
           </div>
 
-          <p className="text-center process-cta-wrap">
+          <p className="text-center process-cta-wrap ot-reveal ot-delay-3">
             <a className="process-cta dtr-scroll-link" href="#contact">
               <i className="icon-envelope"></i>
               İletişime Geçin
@@ -94,7 +97,7 @@ export default function Process() {
           </p>
         </div>
 
-        <div className="process-illustration-wrap">
+        <div className="process-illustration-wrap ot-reveal-scale ot-delay-4">
           <img
             src="/assets/images/illustration.png"
             alt=""

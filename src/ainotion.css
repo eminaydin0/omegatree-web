@@ -47,6 +47,23 @@ body {
   height: 2px;
   border-radius: 2px;
   background: var(--ot-gradient-short);
+  transform-origin: left center;
+  animation: otNavUnderline 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes otNavUnderline {
+  from {
+    transform: scaleX(0);
+    opacity: 0.6;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+#dtr-header-global {
+  animation: otFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
 }
 
 .slicknav_nav a.active {
@@ -57,6 +74,143 @@ body {
 
 .slicknav_nav a:hover {
   color: var(--ot-primary) !important;
+}
+
+/* ===== Kurumsal scroll animasyonları ===== */
+@keyframes otFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes otFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes otFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes otSoftScale {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ot-reveal-section .ot-reveal,
+.ot-reveal-section .ot-reveal-left,
+.ot-reveal-section .ot-reveal-right,
+.ot-reveal-section .ot-reveal-scale,
+.ot-reveal-section .section-animate,
+.ot-reveal-section .stats-animate {
+  opacity: 0;
+}
+
+.ot-reveal-section.is-revealed .ot-reveal,
+.ot-reveal-section.is-revealed .section-animate,
+.ot-reveal-section.is-revealed .stats-animate {
+  animation: otFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ot-reveal-section.is-revealed .ot-reveal-left {
+  animation: otFadeInLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ot-reveal-section.is-revealed .ot-reveal-right {
+  animation: otFadeInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ot-reveal-section.is-revealed .ot-reveal-scale {
+  animation: otSoftScale 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.ot-delay-1 { animation-delay: 0.05s !important; }
+.ot-delay-2 { animation-delay: 0.12s !important; }
+.ot-delay-3 { animation-delay: 0.2s !important; }
+.ot-delay-4 { animation-delay: 0.28s !important; }
+.ot-delay-5 { animation-delay: 0.36s !important; }
+.ot-delay-6 { animation-delay: 0.44s !important; }
+.ot-delay-7 { animation-delay: 0.52s !important; }
+.ot-delay-8 { animation-delay: 0.6s !important; }
+.ot-delay-9 { animation-delay: 0.68s !important; }
+.ot-delay-10 { animation-delay: 0.76s !important; }
+
+/* Kart hover — hafif yükselme */
+#features .ozellik-card,
+.expert-card,
+.process-slide,
+.omegatree-stat-card,
+.contact-layout {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#features .ozellik-card:hover,
+.expert-card:hover,
+.omegatree-stat-card:hover {
+  transform: translateY(-4px);
+}
+
+#features .ozellik-card:hover .ozellik-icon-wrap,
+.expert-card:hover .expert-icon-wrap {
+  transform: scale(1.04);
+}
+
+#features .ozellik-icon-wrap,
+.expert-icon-wrap {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ot-reveal-section .ot-reveal,
+  .ot-reveal-section .ot-reveal-left,
+  .ot-reveal-section .ot-reveal-right,
+  .ot-reveal-section .ot-reveal-scale,
+  .ot-reveal-section .section-animate,
+  .ot-reveal-section .stats-animate {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  #features .ozellik-card:hover,
+  .expert-card:hover,
+  .omegatree-stat-card:hover {
+    transform: none;
+  }
+
+  #dtr-header-global {
+    animation: none;
+  }
+
+  .main-navigation.dtr-menu-dark .sf-menu > li > a.nav-link.active::after {
+    animation: none;
+    transform: none;
+  }
 }
 
 /* ===== Hero: tipografi & animasyon ===== */
@@ -318,13 +472,17 @@ body {
   opacity: 0;
 }
 
-#features.is-revealed .section-animate {
-  animation: heroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+#features.is-revealed .section-animate,
+.ot-reveal-section.is-revealed .section-animate {
+  animation: otFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-#features.is-revealed .section-animate-1 { animation-delay: 0.05s; }
-#features.is-revealed .section-animate-2 { animation-delay: 0.15s; }
-#features.is-revealed .section-animate-3 { animation-delay: 0.25s; }
+#features.is-revealed .section-animate-1,
+.ot-reveal-section.is-revealed .section-animate-1 { animation-delay: 0.05s; }
+#features.is-revealed .section-animate-2,
+.ot-reveal-section.is-revealed .section-animate-2 { animation-delay: 0.15s; }
+#features.is-revealed .section-animate-3,
+.ot-reveal-section.is-revealed .section-animate-3 { animation-delay: 0.25s; }
 
 #features .ozellik-card {
   margin-bottom: 28px;
@@ -957,8 +1115,9 @@ body {
   opacity: 0;
 }
 
-.omegatree-stats-section.is-revealed .stats-animate {
-  animation: heroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.omegatree-stats-section.is-revealed .stats-animate,
+.ot-reveal-section.is-revealed .stats-animate {
+  animation: otFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .omegatree-stats-section.is-revealed .stats-animate-1 { animation-delay: 0.05s; }
@@ -1210,7 +1369,8 @@ body {
   object-position: top left;
   opacity: 0;
   transform: scale(1.02);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .omegatree-app-screen.is-active {

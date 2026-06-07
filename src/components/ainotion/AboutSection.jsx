@@ -1,3 +1,5 @@
+import useScrollReveal from '../../hooks/useScrollReveal'
+
 const assuranceItems = [
   {
     title: 'Klinik Doğrulukta Metabolomik Analizler',
@@ -21,22 +23,26 @@ const assuranceItems = [
 ]
 
 export default function AboutSection() {
+  const platformRef = useScrollReveal()
+  const aboutRef = useScrollReveal()
+
   return (
     <>
       <section
-        className="dtr-section dtr-py-100 bg-light-blue parallax about-platform-cta"
+        ref={platformRef}
+        className="dtr-section dtr-py-100 bg-light-blue parallax about-platform-cta ot-reveal-section"
         style={{ backgroundImage: 'url(/assets/images/cta-bg.png)' }}
       >
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-12 col-md-7">
+            <div className="col-12 col-md-7 ot-reveal ot-delay-1">
               <p className="about-eyebrow">OmegaTree Platform</p>
               <h4 className="about-platform-title">
                 Diyetisyenler ve laboratuvarlar arasında kit takibi, analiz süreci
                 ve danışan yönetimi — tek ekosistemde.
               </h4>
             </div>
-            <div className="col-12 col-md-5 about-platform-actions">
+            <div className="col-12 col-md-5 about-platform-actions ot-reveal ot-delay-2">
               <a
                 href="https://app.omegatree.com.tr/"
                 target="_blank"
@@ -53,15 +59,15 @@ export default function AboutSection() {
         </div>
       </section>
 
-      <section id="about" className="dtr-section about-section">
+      <section ref={aboutRef} id="about" className="dtr-section about-section ot-reveal-section">
         <div className="container">
           <div className="row dtr-pt-100">
-            <div className="col-12 col-md-6 small-device-space">
+            <div className="col-12 col-md-6 small-device-space ot-reveal-left ot-delay-1">
               <img src="/assets/images/ai-img1.png" alt="OmegaTree metabolomik analiz" />
             </div>
 
             <div className="col-12 col-md-6">
-              <div className="dtr-pl-30 about-intro">
+              <div className="dtr-pl-30 about-intro ot-reveal-right ot-delay-2">
                 <p className="about-eyebrow">Hakkımızda</p>
                 <h2 className="about-title">
                   Bilimin Işığında
@@ -92,14 +98,17 @@ export default function AboutSection() {
 
           <div className="row dtr-mt-100">
             <div className="col-12 col-md-6">
-              <div className="dtr-pr-30 about-assurance-block">
+              <div className="dtr-pr-30 about-assurance-block ot-reveal-left ot-delay-1">
                 <h2 className="about-assurance-heading">
                   Bilimsel Güvence ile
                   <span className="about-title-accent"> Sunulan Hizmetler</span>
                 </h2>
                 <ul className="about-assurance-list">
-                  {assuranceItems.map((item) => (
-                    <li key={item.title} className="about-assurance-item">
+                  {assuranceItems.map((item, index) => (
+                    <li
+                      key={item.title}
+                      className={`about-assurance-item ot-reveal ot-delay-${index + 2}`}
+                    >
                       <span className="about-assurance-icon" aria-hidden="true">
                         <i className="icon-check-circle2"></i>
                       </span>
@@ -113,7 +122,7 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="col-12 col-md-6 small-device-space">
+            <div className="col-12 col-md-6 small-device-space ot-reveal-right ot-delay-2">
               <img src="/assets/images/ai-img2.png" alt="OmegaTree dijital sağlık platformu" />
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import useScrollReveal from '../../hooks/useScrollReveal'
 
 const features = [
   {
@@ -45,9 +45,9 @@ const features = [
   },
 ]
 
-function FeatureCard({ number, title, description, icon, className = '' }) {
+function FeatureCard({ number, title, description, icon, delayClass = '' }) {
   return (
-    <div className={`col-12 col-md-4 ozellik-card ${className}`.trim()}>
+    <div className={`col-12 col-md-4 ozellik-card ot-reveal ${delayClass}`.trim()}>
       <div className="ozellik-icon-wrap" aria-hidden="true">
         <i className={icon}></i>
       </div>
@@ -59,32 +59,16 @@ function FeatureCard({ number, title, description, icon, className = '' }) {
   )
 }
 
+const cardDelays = ['ot-delay-4', 'ot-delay-5', 'ot-delay-6', 'ot-delay-7', 'ot-delay-8', 'ot-delay-9']
+
 export default function WhyFeatures() {
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add('is-revealed')
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-
-    observer.observe(section)
-    return () => observer.disconnect()
-  }, [])
+  const sectionRef = useScrollReveal()
 
   return (
     <section
       ref={sectionRef}
       id="features"
-      className="dtr-section dtr-pt-50 dtr-pb-70 features-section"
+      className="dtr-section dtr-pt-50 dtr-pb-70 features-section ot-reveal-section"
     >
       <div className="container">
         <div className="dtr-styled-heading text-center features-section-header">
@@ -104,14 +88,14 @@ export default function WhyFeatures() {
         </div>
 
         <div className="row">
-          {features.slice(0, 3).map((feature) => (
-            <FeatureCard key={feature.number} {...feature} />
+          {features.slice(0, 3).map((feature, index) => (
+            <FeatureCard key={feature.number} {...feature} delayClass={cardDelays[index]} />
           ))}
         </div>
 
         <div className="row dtr-mt-40">
-          {features.slice(3).map((feature) => (
-            <FeatureCard key={feature.number} {...feature} />
+          {features.slice(3).map((feature, index) => (
+            <FeatureCard key={feature.number} {...feature} delayClass={cardDelays[index + 3]} />
           ))}
         </div>
       </div>

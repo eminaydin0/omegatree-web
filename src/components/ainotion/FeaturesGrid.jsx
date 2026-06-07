@@ -1,3 +1,5 @@
+import useScrollReveal from '../../hooks/useScrollReveal'
+
 const expertFeatures = [
   {
     icon: 'icon-flask',
@@ -36,9 +38,11 @@ const expertFeatures = [
   },
 ]
 
-function ExpertCard({ icon, title, description, className = '' }) {
+const cardDelays = ['ot-delay-3', 'ot-delay-4', 'ot-delay-5', 'ot-delay-6', 'ot-delay-7']
+
+function ExpertCard({ icon, title, description, className = '', delayClass = '' }) {
   return (
-    <div className={`col-12 col-md-4 expert-card ${className}`.trim()}>
+    <div className={`col-12 col-md-4 expert-card ot-reveal ${delayClass} ${className}`.trim()}>
       <div className="expert-icon-wrap" aria-hidden="true">
         <i className={icon}></i>
       </div>
@@ -49,13 +53,16 @@ function ExpertCard({ icon, title, description, className = '' }) {
 }
 
 export default function FeaturesGrid() {
+  const sectionRef = useScrollReveal()
+
   return (
     <section
+      ref={sectionRef}
       id="features2"
-      className="dtr-section dtr-pt-100 dtr-pb-70 experts-section"
+      className="dtr-section dtr-pt-100 dtr-pb-70 experts-section ot-reveal-section"
     >
       <div className="container">
-        <div className="dtr-styled-heading text-center experts-section-header">
+        <div className="dtr-styled-heading text-center experts-section-header ot-reveal ot-delay-1">
           <p className="about-eyebrow">Microscale Absorptive Sampling-10 (MAS-10)</p>
           <h2 className="about-title">
             OmegaTree ile Uzmanlığınızı
@@ -64,14 +71,14 @@ export default function FeaturesGrid() {
         </div>
 
         <div className="row">
-          {expertFeatures.slice(0, 3).map((feature) => (
-            <ExpertCard key={feature.title} {...feature} />
+          {expertFeatures.slice(0, 3).map((feature, index) => (
+            <ExpertCard key={feature.title} {...feature} delayClass={cardDelays[index]} />
           ))}
         </div>
 
         <div className="row dtr-mt-40">
-          {expertFeatures.slice(3).map((feature) => (
-            <ExpertCard key={feature.title} {...feature} />
+          {expertFeatures.slice(3).map((feature, index) => (
+            <ExpertCard key={feature.title} {...feature} delayClass={cardDelays[index + 3]} />
           ))}
         </div>
       </div>

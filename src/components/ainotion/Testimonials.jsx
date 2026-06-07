@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const stats = [
   { value: '1000+', label: 'Tamamlanan Metabolomik Analiz' },
@@ -27,6 +27,7 @@ const appScreens = [
 
 export default function Testimonials() {
   const sectionRef = useRef(null)
+  const [activeScreen, setActiveScreen] = useState(0)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -44,6 +45,14 @@ export default function Testimonials() {
 
     observer.observe(section)
     return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveScreen((current) => (current + 1) % appScreens.length)
+    }, 5500)
+
+    return () => clearInterval(timer)
   }, [])
 
   return (
@@ -76,37 +85,67 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
+      </div>
 
-        <div className="omegatree-app-showcase">
-          <div className="omegatree-app-showcase-head text-center">
-            <p className="omegatree-app-eyebrow">OmegaTree Platform</p>
-            <h3 className="omegatree-app-title">Kit takibi, stok ve raporlama — tek panelde</h3>
-            <p className="omegatree-app-lead">
-              Diyetisyenler, laboratuvarlar ve yöneticiler için güvenilir dijital altyapı.
-            </p>
+      <div className="omegatree-app-showcase">
+        <div className="omegatree-app-stage">
+          <div className="container omegatree-app-stage-inner">
+            <div className="omegatree-app-stage-content stats-animate stats-animate-7">
+              <p className="omegatree-app-eyebrow">OmegaTree Platform</p>
+              <h3 className="omegatree-app-title">
+                Kit takibi, stok ve raporlama — tek panelde
+              </h3>
+              <p className="omegatree-app-lead">
+                Diyetisyenler, laboratuvarlar ve yöneticiler için güvenilir dijital altyapı.
+              </p>
+
+              <div className="omegatree-app-tabs" role="tablist" aria-label="Uygulama ekranları">
+                {appScreens.map((screen, index) => (
+                  <button
+                    key={screen.caption}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeScreen === index}
+                    className={`omegatree-app-tab${activeScreen === index ? ' is-active' : ''}`}
+                    onClick={() => setActiveScreen(index)}
+                  >
+                    {screen.caption}
+                  </button>
+                ))}
+              </div>
+
+              <a
+                href="https://app.omegatree.com.tr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="omegatree-app-cta"
+              >
+                Uygulamayı Gör
+              </a>
+            </div>
           </div>
 
-          <div className="omegatree-app-grid">
-            {appScreens.map((screen) => (
-              <figure key={screen.caption} className="omegatree-app-shot">
-                <div className="omegatree-app-shot-frame">
-                  <img src={screen.src} alt={screen.alt} loading="lazy" />
-                </div>
-                <figcaption>{screen.caption}</figcaption>
-              </figure>
-            ))}
+          <div className="omegatree-app-stage-visual" aria-hidden="true">
+            <div className="omegatree-app-browser">
+              <div className="omegatree-app-browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span className="omegatree-app-browser-url">app.omegatree.com.tr</span>
+              </div>
+              <div className="omegatree-app-browser-screen">
+                {appScreens.map((screen, index) => (
+                  <img
+                    key={screen.caption}
+                    src={screen.src}
+                    alt={screen.alt}
+                    loading="lazy"
+                    className={`omegatree-app-screen${activeScreen === index ? ' is-active' : ''}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-
-          <p className="text-center omegatree-app-cta-wrap">
-            <a
-              href="https://app.omegatree.com.tr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="omegatree-app-cta"
-            >
-              Uygulamayı Gör
-            </a>
-          </p>
         </div>
       </div>
     </section>

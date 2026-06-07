@@ -1,6 +1,4 @@
-import useSlickSlider from '../../hooks/useSlickSlider'
-
-const contactSlides = [
+const contactItems = [
   {
     icon: 'icon-phone-alt',
     label: 'Telefon',
@@ -17,136 +15,117 @@ const contactSlides = [
     icon: 'icon-map-marker',
     label: 'Adres',
     value:
-      'Yıldırım Beyazıt Mah. Aşık Veysel Blv. Erciyes Üniversitesi Teknoloji Geliştirme Bölgesi, 38030 Melikgazi/Kayseri',
+      'Yıldırım Beyazıt Mah. Aşık Veysel Blv. Erciyes Üniversitesi Teknoloji Geliştirme Bölgesi İdare Binası ve Kuluçka Merkezi 4 Binası, 38030 Melikgazi/Kayseri',
     href: null,
   },
 ]
 
-const contactSliderOptions = {
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  arrows: false,
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 4500,
-  pauseOnHover: true,
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: { slidesToShow: 2 },
-    },
-    {
-      breakpoint: 768,
-      settings: { slidesToShow: 1, centerMode: true, centerPadding: '24px' },
-    },
-  ],
-}
-
 export default function Contact() {
-  const contactSliderRef = useSlickSlider(contactSliderOptions)
-
   return (
-    <section
-      id="contact"
-      className="dtr-section bg-blue contact-section"
-      style={{ backgroundImage: 'url(/assets/images/section-bg-img.jpg)' }}
-    >
-      <div className="dtr-overlay dtr-overlay-blue"></div>
+    <section id="contact" className="dtr-section dtr-py-100 contact-section">
+      <div className="container">
+        <div className="dtr-styled-heading text-center contact-section-header">
+          <p className="section-eyebrow">İletişim</p>
+          <h2 className="section-title contact-title">
+            İletişime
+            <span className="section-title-accent"> Geçin</span>
+          </h2>
+          <p className="contact-lead">
+            Analiz hizmetlerimiz hakkında detaylı bilgi almak, fiyat teklifi istemek veya
+            danışmanlık hizmetlerimizden yararlanmak için bize ulaşın.
+          </p>
+        </div>
 
-      <div
-        className="dtr-py-100 dtr-overlay-content parallax"
-        style={{ backgroundImage: 'url(/assets/images/form-bg.png)' }}
-      >
-        <div className="container">
-          <div className="dtr-styled-heading text-center contact-section-header">
-            <h2 className="color-white contact-title">İletişime Geçin</h2>
-            <p className="color-white contact-lead">
-              Analiz hizmetlerimiz hakkında bilgi almak, fiyat teklifi istemek veya
-              danışmanlık için bize ulaşın.
+        <div className="contact-layout">
+          <aside className="contact-info-panel" aria-label="İletişim bilgileri">
+            <h3 className="contact-info-title">Bize Ulaşın</h3>
+            <p className="contact-info-desc">
+              Size en kısa sürede dönüş yapacağız.
             </p>
-          </div>
 
-          <div
-            ref={contactSliderRef}
-            className="dtr-slick-slider contact-info-slider dtr-mb-40"
-          >
-            {contactSlides.map((slide) => (
-              <div key={slide.label}>
-                <div className="contact-slide">
-                  <i className={`${slide.icon} contact-slide-icon`} aria-hidden="true"></i>
-                  <p className="contact-slide-label">{slide.label}</p>
-                  {slide.href ? (
-                    <a href={slide.href} className="contact-slide-value">
-                      {slide.value}
-                    </a>
-                  ) : (
-                    <p className="contact-slide-value">{slide.value}</p>
-                  )}
+            <ul className="contact-info-list">
+              {contactItems.map((item) => (
+                <li key={item.label} className="contact-info-item">
+                  <span className="contact-info-icon" aria-hidden="true">
+                    <i className={item.icon}></i>
+                  </span>
+                  <div className="contact-info-content">
+                    <span className="contact-info-label">{item.label}</span>
+                    {item.href ? (
+                      <a href={item.href} className="contact-info-value">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="contact-info-value">{item.value}</p>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </aside>
+
+          <div className="contact-form-panel">
+            <h3 className="contact-form-title">Bize Yazın</h3>
+
+            <form
+              id="contactform"
+              className="contact-form"
+              method="post"
+              action="#"
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <fieldset>
+                <div className="contact-form-row">
+                  <div className="contact-field">
+                    <label htmlFor="contact-name">Adınız</label>
+                    <input id="contact-name" name="name" type="text" placeholder="Ad Soyad" />
+                  </div>
+                  <div className="contact-field">
+                    <label htmlFor="contact-email">E-Posta</label>
+                    <input
+                      id="contact-email"
+                      name="email"
+                      className="required email"
+                      type="email"
+                      placeholder="ornek@email.com"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
 
-          <div className="row">
-            <div className="col-12 col-lg-8 offset-lg-2">
-              <div className="dtr-form dtr-p-50 dtr-sm-p-20 dtr-border-5px dtr-rounded-xl bg-blue border-light-blue">
-                <h4 className="color-white text-center dtr-mb-30">Bize Yazın</h4>
-                <p className="color-white text-center dtr-mb-30">
-                  Size en kısa sürede dönüş yapacağız.
+                <div className="contact-field">
+                  <label htmlFor="contact-subject">Konu</label>
+                  <select id="contact-subject" name="selectdropdown">
+                    <option value="">Genel Bilgi</option>
+                    <option value="1">Analiz Hizmetleri</option>
+                    <option value="2">Fiyat Teklifi</option>
+                    <option value="3">Danışmanlık</option>
+                    <option value="4">Platform / İşbirliği</option>
+                  </select>
+                </div>
+
+                <p className="antispam" style={{ display: 'none' }}>
+                  Leave this empty: <br />
+                  <input name="url" />
                 </p>
-                <form
-                  id="contactform"
-                  method="post"
-                  action="#"
-                  onSubmit={(event) => event.preventDefault()}
-                >
-                  <fieldset>
-                    <div className="dtr-form-row dtr-form-row-2col clearfix">
-                      <p className="dtr-form-column">
-                        <input name="name" type="text" placeholder="Ad Soyad" />
-                      </p>
-                      <p className="dtr-form-column">
-                        <input
-                          name="email"
-                          className="required email"
-                          type="text"
-                          placeholder="ornek@email.com"
-                        />
-                      </p>
-                    </div>
-                    <p>
-                      <select name="selectdropdown" className="dtr-select">
-                        <option value="">Konu — Genel Bilgi</option>
-                        <option value="1">Analiz Hizmetleri</option>
-                        <option value="2">Fiyat Teklifi</option>
-                        <option value="3">Danışmanlık</option>
-                        <option value="4">Platform / İşbirliği</option>
-                      </select>
-                    </p>
-                    <p className="antispam" style={{ display: 'none' }}>
-                      Leave this empty: <br />
-                      <input name="url" />
-                    </p>
-                    <p>
-                      <textarea
-                        rows="6"
-                        name="message"
-                        id="message"
-                        className="required"
-                        placeholder="Mesajınızı buraya yazın..."
-                      ></textarea>
-                    </p>
-                    <p className="text-center">
-                      <button className="dtr-btn dtr-btn-styled btn-red dtr-mt-20" type="submit">
-                        Gönder
-                      </button>
-                    </p>
-                    <div id="result"></div>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
+
+                <div className="contact-field">
+                  <label htmlFor="message">Mesajınız</label>
+                  <textarea
+                    rows="5"
+                    name="message"
+                    id="message"
+                    className="required"
+                    placeholder="Mesajınızı buraya yazın..."
+                  ></textarea>
+                </div>
+
+                <button className="contact-form-submit" type="submit">
+                  Gönder
+                  <i className="icon-arrow-right" aria-hidden="true"></i>
+                </button>
+                <div id="result"></div>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>

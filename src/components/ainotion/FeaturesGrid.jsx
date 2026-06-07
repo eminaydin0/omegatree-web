@@ -52,8 +52,7 @@ export default function FeaturesGrid() {
   return (
     <section
       id="features2"
-      className="dtr-section dtr-pt-100 dtr-pb-70 bg-light-blue parallax experts-section"
-      style={{ backgroundImage: 'url(/assets/images/features-bg.png)' }}
+      className="dtr-section dtr-pt-100 dtr-pb-70 experts-section"
     >
       <div className="container">
         <div className="dtr-styled-heading text-center experts-section-header">

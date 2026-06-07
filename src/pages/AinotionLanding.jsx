@@ -5,9 +5,7 @@ import {
   AboutSection,
   Testimonials,
   FeaturesGrid,
-  Pricing,
   Process,
-  Blog,
   Contact,
   Footer,
   ScrollToTop,
@@ -20,12 +18,10 @@ export default function AinotionLanding() {
       <div id="dtr-main-content">
         <Hero />
         <WhyFeatures />
+        <Process />
+        <FeaturesGrid />
         <AboutSection />
         <Testimonials />
-        <FeaturesGrid />
-        <Pricing />
-        <Process />
-        <Blog />
         <Contact />
         <Footer />
       </div>

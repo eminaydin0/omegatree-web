@@ -83,8 +83,8 @@ export default function AboutSection() {
                   önerilerine dönüştürerek herkes için erişilebilir bir kişiselleştirilmiş sağlık
                   yaklaşımı sunmaktır.
                 </p>
-                <a href="#pricing" className="about-link-tag dtr-scroll-link">
-                  <span>Hizmetler</span> Bilimsel güvence
+                <a href="#contact" className="about-link-tag dtr-scroll-link">
+                  <span>İletişim</span> Bilimsel güvence
                 </a>
               </div>
             </div>

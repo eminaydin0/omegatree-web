@@ -1,8 +1,6 @@
-import useScrollReveal from '../../hooks/useScrollReveal'
+import { brandPhotos } from '../../config/brandAssets'
 
 export default function Hero() {
-  const clientsRef = useScrollReveal({ threshold: 0.2 })
-
   return (
     <>
       <section
@@ -22,9 +20,9 @@ export default function Hero() {
                   <span className="hero-title-accent"> Bilim Temelli Değerlendirme</span>
                 </h1>
                 <p className="hero-lead hero-animate hero-animate-3">
-                  OmegaTree; <strong>MAS-10®</strong> ile evde alınan sabit hacimli kan
-                  örneğinizi hedefli metabolomik analizden geçirir ve size özel,
-                  bilim temelli bir <em>beslenme–yaşam tarzı</em> planına dönüştürür.
+                  OmegaTree, <strong>MAS-10®</strong> ile evde alınan sabit hacimli kan örneğini
+                  hedefli metabolomik analizle değerlendirir ve size özgü, bilim temelli bir{' '}
+                  <em>beslenme–yaşam tarzı</em> planı oluşturur.
                 </p>
                 <div className="hero-actions hero-animate hero-animate-4">
                   <a href="#features" className="dtr-scroll-link hero-btn hero-btn-primary">
@@ -37,48 +35,17 @@ export default function Hero() {
               </div>
             </div>
             <div className="col-12 col-md-6 small-device-space">
-              <div className="hero-visual">
-                <img
-                  src="/assets/images/hero-img.png"
-                  alt="OmegaTree metabolik sağlık değerlendirmesi"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        ref={clientsRef}
-        className="dtr-section dtr-py-50 hero-clients-section ot-reveal-section"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-10 offset-md-1">
-              <div className="dtr-slick-slider dtr-img-slider-6col ot-reveal ot-delay-1">
-                <div>
-                  <img src="/assets/images/client-2.png" alt="image" />
-                </div>
-                <div>
-                  <img src="/assets/images/client-1.png" alt="image" />
-                </div>
-                <div>
-                  <img src="/assets/images/client-3.png" alt="image" />
-                </div>
-                <div>
-                  <img src="/assets/images/client-4.png" alt="image" />
-                </div>
-                <div>
-                  <img src="/assets/images/client-5.png" alt="image" />
-                </div>
-                <div>
-                  <img src="/assets/images/client-6.png" alt="image" />
-                </div>
-                <div>
-                  <img src="/assets/images/client-2.png" alt="image" />
-                </div>
-                <div>
-                  <img src="/assets/images/client-4.png" alt="image" />
+              <div className="hero-visual hero-animate hero-animate-5">
+                <div className="hero-photo-tilt">
+                  <div className="hero-photo-glow" aria-hidden="true"></div>
+                  <div className="hero-photo-frame">
+                    <img
+                      src={brandPhotos.heroVisual}
+                      alt="OmegaTree — bilim temelli beslenme ve metabolik sağlık"
+                      className="hero-photo"
+                    />
+                  </div>
+                  <span className="hero-photo-accent" aria-hidden="true"></span>
                 </div>
               </div>
             </div>

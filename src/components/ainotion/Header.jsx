@@ -1,3 +1,4 @@
+import { brandLogo } from '../../config/brandAssets'
 import useHeaderScrollSpy from '../../hooks/useHeaderScrollSpy'
 
 const navItems = [
@@ -14,16 +15,22 @@ export default function Header() {
 
   return (
     <>
-      <div className="dtr-preloader">
-        <div className="dtr-preloader-inner">
-          <div className="dtr-preloader-img"></div>
+      <div className="dtr-preloader ot-preloader">
+        <div className="dtr-preloader-inner ot-preloader-inner">
+          <div className="ot-preloader-content">
+            <img src={brandLogo} alt="OmegaTree" className="ot-preloader-logo" />
+            <p className="ot-preloader-tagline">Metabolik Sağlık</p>
+            <div className="ot-preloader-bar" aria-hidden="true">
+              <span className="ot-preloader-bar-fill"></span>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="dtr-responsive-header fixed-top">
         <div className="container">
           <a href="/">
-            <img src="/assets/images/logo-dark.png" alt="OmegaTree" />
+            <img src={brandLogo} alt="OmegaTree" className="brand-logo" />
           </a>
 
           <button id="dtr-menu-button" className="dtr-hamburger" type="button">
@@ -40,11 +47,11 @@ export default function Header() {
           <div className="d-flex align-items-center justify-content-between">
             <div className="dtr-header-left">
               <a className="logo-default dtr-scroll-link" href="#home">
-                <img src="/assets/images/logo-dark.png" alt="OmegaTree" width="173" />
+                <img src={brandLogo} alt="OmegaTree" className="brand-logo" />
               </a>
 
               <a className="logo-alt dtr-scroll-link" href="#home">
-                <img src="/assets/images/logo-dark.png" alt="OmegaTree" width="173" />
+                <img src={brandLogo} alt="OmegaTree" className="brand-logo" />
               </a>
             </div>
 

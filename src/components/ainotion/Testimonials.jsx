@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useScrollReveal from '../../hooks/useScrollReveal'
 
 const stats = [
@@ -72,60 +72,65 @@ export default function Testimonials() {
 
       <div className="omegatree-app-showcase ot-reveal ot-delay-3">
         <div className="omegatree-app-stage">
-          <div className="container omegatree-app-stage-inner">
-            <div className="omegatree-app-stage-content">
-              <p className="omegatree-app-eyebrow">OmegaTree Platform</p>
-              <h3 className="omegatree-app-title">
-                Kit takibi, stok ve raporlama — tek panelde
-              </h3>
-              <p className="omegatree-app-lead">
-                Diyetisyenler, laboratuvarlar ve yöneticiler için güvenilir dijital altyapı.
-              </p>
+          <div className="container">
+            <div className="omegatree-app-stage-grid">
+              <div className="omegatree-app-stage-content">
+                <p className="omegatree-app-eyebrow">OmegaTree Platform</p>
+                <h3 className="omegatree-app-title">
+                  Kit takibi, stok ve raporlama — tek panelde
+                </h3>
+                <p className="omegatree-app-lead">
+                  Diyetisyenler, laboratuvarlar ve yöneticiler için güvenilir dijital altyapı.
+                </p>
 
-              <div className="omegatree-app-tabs" role="tablist" aria-label="Uygulama ekranları">
-                {appScreens.map((screen, index) => (
-                  <button
-                    key={screen.caption}
-                    type="button"
-                    role="tab"
-                    aria-selected={activeScreen === index}
-                    className={`omegatree-app-tab${activeScreen === index ? ' is-active' : ''}`}
-                    onClick={() => setActiveScreen(index)}
-                  >
-                    {screen.caption}
-                  </button>
-                ))}
+                <div className="omegatree-app-tabs" role="tablist" aria-label="Uygulama ekranları">
+                  {appScreens.map((screen, index) => (
+                    <button
+                      key={screen.caption}
+                      type="button"
+                      role="tab"
+                      aria-selected={activeScreen === index}
+                      className={`omegatree-app-tab${activeScreen === index ? ' is-active' : ''}`}
+                      onClick={() => setActiveScreen(index)}
+                    >
+                      {screen.caption}
+                    </button>
+                  ))}
+                </div>
+
+                <a
+                  href="https://app.omegatree.com.tr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="omegatree-app-cta"
+                >
+                  Uygulamayı Gör
+                </a>
               </div>
 
-              <a
-                href="https://app.omegatree.com.tr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="omegatree-app-cta"
-              >
-                Uygulamayı Gör
-              </a>
-            </div>
-          </div>
-
-          <div className="omegatree-app-stage-visual ot-reveal-right ot-delay-4" aria-hidden="true">
-            <div className="omegatree-app-browser">
-              <div className="omegatree-app-browser-bar">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span className="omegatree-app-browser-url">app.omegatree.com.tr</span>
-              </div>
-              <div className="omegatree-app-browser-screen">
-                {appScreens.map((screen, index) => (
-                  <img
-                    key={screen.caption}
-                    src={screen.src}
-                    alt={screen.alt}
-                    loading="lazy"
-                    className={`omegatree-app-screen${activeScreen === index ? ' is-active' : ''}`}
-                  />
-                ))}
+              <div className="omegatree-app-stage-visual ot-reveal-right ot-delay-4" aria-hidden="true">
+                <div className="omegatree-app-visual-frame">
+                  <div className="omegatree-app-visual-glow" aria-hidden="true"></div>
+                  <div className="omegatree-app-browser">
+                    <div className="omegatree-app-browser-bar">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span className="omegatree-app-browser-url">app.omegatree.com.tr</span>
+                    </div>
+                    <div className="omegatree-app-browser-screen">
+                      {appScreens.map((screen, index) => (
+                        <img
+                          key={screen.caption}
+                          src={screen.src}
+                          alt={screen.alt}
+                          loading="lazy"
+                          className={`omegatree-app-screen${activeScreen === index ? ' is-active' : ''}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

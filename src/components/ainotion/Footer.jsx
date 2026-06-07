@@ -1,4 +1,5 @@
 import useScrollReveal from '../../hooks/useScrollReveal'
+import { brandLogo } from '../../config/brandAssets'
 
 export default function Footer() {
   const footerRef = useScrollReveal({ threshold: 0.08 })
@@ -8,7 +9,7 @@ export default function Footer() {
       <div className="container ot-reveal ot-delay-1">
         <div className="row">
           <div className="col-12 col-sm-6 col-lg-5 small-device-space">
-            <img src="/assets/images/logo-dark.png" alt="OmegaTree" className="dtr-mb-30 footer-logo" />
+            <img src={brandLogo} alt="OmegaTree" className="dtr-mb-30 footer-logo brand-logo" />
             <p className="dtr-mb-30 footer-slogan">
               Metabolizmanızı ölçün, sağlığınızı yönetin.
             </p>

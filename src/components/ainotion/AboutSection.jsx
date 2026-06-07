@@ -1,4 +1,5 @@
 import useScrollReveal from '../../hooks/useScrollReveal'
+import { brandLogo, brandPhotos } from '../../config/brandAssets'
 
 const assuranceItems = [
   {
@@ -18,7 +19,7 @@ const assuranceItems = [
   },
   {
     title: 'Dijital Sağlık Altyapısı ile Kolay Takip',
-    description: 'Sonuçlara güvenli çevrimiçi erişim ve sürekli takip imkânı.',
+    description: 'Sonuçlara güvenli çevrimiçi erişim ve takip imkânı.',
   },
 ]
 
@@ -30,10 +31,11 @@ export default function AboutSection() {
     <>
       <section
         ref={platformRef}
-        className="dtr-section dtr-py-100 bg-light-blue parallax about-platform-cta ot-reveal-section"
-        style={{ backgroundImage: 'url(/assets/images/cta-bg.png)' }}
+        className="dtr-section dtr-py-100 about-platform-cta about-platform-cta--photo ot-reveal-section"
+        style={{ backgroundImage: `url(${brandPhotos.platformBg})` }}
       >
-        <div className="container">
+        <div className="about-platform-overlay" aria-hidden="true"></div>
+        <div className="container about-platform-container">
           <div className="row align-items-center">
             <div className="col-12 col-md-7 ot-reveal ot-delay-1">
               <p className="about-eyebrow">OmegaTree Platform</p>
@@ -63,7 +65,11 @@ export default function AboutSection() {
         <div className="container">
           <div className="row dtr-pt-100">
             <div className="col-12 col-md-6 small-device-space ot-reveal-left ot-delay-1">
-              <img src="/assets/images/ai-img1.png" alt="OmegaTree metabolomik analiz" />
+              <img
+                src={brandPhotos.aboutPrimary}
+                alt="OmegaTree metabolomik analiz"
+                className="brand-photo"
+              />
             </div>
 
             <div className="col-12 col-md-6">
@@ -73,7 +79,7 @@ export default function AboutSection() {
                   Bilimin Işığında
                   <span className="about-title-accent">
                     {' '}
-                    Kişiselleştirilmiş Sağlık Çözümleri
+                    Kişiselleştirilmiş Sağlık Çözümleri Üretiyoruz
                   </span>
                 </h2>
                 <p className="about-text">
@@ -96,7 +102,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="row dtr-mt-100">
+          <div className="row dtr-mt-100 align-items-start about-assurance-row">
             <div className="col-12 col-md-6">
               <div className="dtr-pr-30 about-assurance-block ot-reveal-left ot-delay-1">
                 <h2 className="about-assurance-heading">
@@ -122,8 +128,12 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="col-12 col-md-6 small-device-space ot-reveal-right ot-delay-2">
-              <img src="/assets/images/ai-img2.png" alt="OmegaTree dijital sağlık platformu" />
+            <div className="col-12 col-md-6 small-device-space about-assurance-visual ot-reveal-right ot-delay-2">
+              <img
+                src={brandPhotos.aboutSecondary}
+                alt="OmegaTree — bilim temelli beslenme"
+                className="brand-photo about-assurance-photo"
+              />
             </div>
           </div>
         </div>

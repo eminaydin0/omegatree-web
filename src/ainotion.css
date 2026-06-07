@@ -11,6 +11,7 @@
   --ot-primary-muted: #9ee4c5;
   --ot-gradient: linear-gradient(120deg, #3a9d72 0%, #5bb88a 45%, #267556 100%);
   --ot-gradient-short: linear-gradient(135deg, #3a9d72 0%, #5bb88a 100%);
+  --ot-accent-gold: #c9a227;
   --ot-page-bg: #fafcfb;
   --ot-section-space: 120px;
   --ot-section-space-sm: 88px;
@@ -27,6 +28,108 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+/* ===== Açılış loading — OmegaTree ===== */
+.dtr-preloader.ot-preloader {
+  background: var(--ot-page-bg) !important;
+}
+
+.ot-preloader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 42%,
+    rgba(206, 255, 241, 0.55) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.ot-preloader-inner {
+  position: relative;
+  z-index: 1;
+  flex-direction: column !important;
+}
+
+.ot-preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  animation: otPreloaderFadeIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ot-preloader-logo {
+  display: block;
+  height: 76px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.ot-preloader-tagline {
+  margin: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--ot-primary-soft);
+  color: var(--ot-primary);
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ot-preloader-bar {
+  width: 168px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(58, 157, 114, 0.14);
+  overflow: hidden;
+}
+
+.ot-preloader-bar-fill {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ot-gradient-short);
+  animation: otPreloaderProgress 1.15s ease-in-out infinite;
+}
+
+@keyframes otPreloaderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes otPreloaderProgress {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ot-preloader-content {
+    animation: none;
+  }
+
+  .ot-preloader-bar-fill {
+    animation: none;
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 
 /* ===== Sade & ferah düzen (metin/yapı korunur) ===== */
@@ -80,9 +183,9 @@ body {
   border-bottom: 1px solid var(--ot-line-soft);
 }
 
+.about-platform-cta.about-platform-cta--photo,
 .about-platform-cta.bg-light-blue {
-  background: rgba(206, 255, 241, 0.22) !important;
-  background-image: none !important;
+  background-color: transparent !important;
   border-top: 1px solid var(--ot-line-soft);
   border-bottom: 1px solid var(--ot-line-soft);
 }
@@ -351,6 +454,138 @@ body {
 }
 
 /* ===== Hero: tipografi & animasyon ===== */
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 52px;
+  max-width: 168px;
+  object-fit: contain;
+}
+
+#dtr-header-global .brand-logo,
+.dtr-responsive-header .brand-logo {
+  height: 62px;
+  max-width: 200px;
+}
+
+#dtr-header-global .dtr-header-left {
+  min-width: 200px;
+}
+
+.site-footer .brand-logo,
+.site-footer .footer-logo {
+  height: auto;
+  max-width: 180px;
+  max-height: none;
+}
+
+.brand-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(58, 157, 114, 0.12);
+}
+
+.hero-section .hero-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hero-section .hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 16px 12px 40px;
+}
+
+.hero-section .hero-photo-tilt {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  animation: heroPhotoFloat 6s ease-in-out 1.4s infinite;
+}
+
+.hero-section .hero-photo-glow {
+  position: absolute;
+  inset: 8% -6% -8% 6%;
+  background: radial-gradient(
+    ellipse at 60% 40%,
+    rgba(58, 157, 114, 0.2) 0%,
+    rgba(206, 255, 241, 0.12) 45%,
+    transparent 72%
+  );
+  filter: blur(24px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-section .hero-photo-frame {
+  position: relative;
+  z-index: 2;
+  transform: rotate(4deg);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 32px 64px rgba(15, 23, 42, 0.12),
+    0 14px 32px rgba(58, 157, 114, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.hero-section .hero-photo-accent {
+  position: absolute;
+  left: 14%;
+  right: -6%;
+  bottom: -16px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ot-primary) 0%, var(--ot-primary-light) 100%);
+  transform: rotate(4deg);
+  z-index: 1;
+  box-shadow: 0 10px 24px rgba(58, 157, 114, 0.28);
+}
+
+@keyframes heroPhotoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.about-platform-cta--photo {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.about-platform-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 255, 255, 0.88) 55%,
+    rgba(206, 255, 241, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.about-platform-container {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-section .hero-content {
   max-width: 540px;
 }
@@ -477,11 +712,6 @@ body {
   transform: translateX(3px);
 }
 
-.hero-section .hero-visual img {
-  width: 100%;
-  height: auto;
-}
-
 @keyframes heroFadeUp {
   from {
     opacity: 0;
@@ -490,16 +720,6 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes heroFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
   }
 }
 
@@ -513,13 +733,7 @@ body {
 .hero-section .hero-animate-3 { animation-delay: 0.28s; }
 .hero-section .hero-animate-4 { animation-delay: 0.38s; }
 .hero-section .hero-animate-5 {
-  animation-delay: 0.45s;
-}
-
-.hero-section .hero-visual {
-  animation: heroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards,
-    heroFloat 5s ease-in-out 1.4s infinite;
-  opacity: 0;
+  animation-delay: 0.48s;
 }
 
 @media (max-width: 767px) {
@@ -533,6 +747,17 @@ body {
 
   .hero-section .hero-visual {
     margin-top: 24px;
+    padding-bottom: 32px;
+  }
+
+  .hero-section .hero-photo-frame,
+  .hero-section .hero-photo-accent {
+    transform: rotate(2deg);
+  }
+
+  .hero-section .hero-photo-accent {
+    bottom: -12px;
+    height: 8px;
   }
 }
 
@@ -542,6 +767,10 @@ body {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .hero-section .hero-photo-tilt {
+    animation: none;
   }
 }
 
@@ -900,6 +1129,19 @@ body {
   color: #64748b;
 }
 
+.about-assurance-visual {
+  display: flex;
+  align-items: flex-start;
+}
+
+.about-assurance-photo {
+  width: 100%;
+  max-height: 420px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+
 @media (max-width: 767px) {
   .about-platform-actions {
     justify-content: flex-start;
@@ -1138,7 +1380,7 @@ body {
 }
 
 .site-footer .footer-logo {
-  max-width: 160px;
+  max-width: 180px;
   height: auto;
 }
 
@@ -1326,20 +1568,23 @@ body {
 
 .omegatree-app-showcase {
   margin-top: 0;
-  padding: var(--ot-section-space-sm) 0;
+  padding: var(--ot-section-space-sm) 0 calc(var(--ot-section-space-sm) + 12px);
   background: rgba(206, 255, 241, 0.18);
   border-top: 1px solid var(--ot-line-soft);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .omegatree-app-stage {
   position: relative;
-  min-height: 460px;
+  overflow: visible;
 }
 
-.omegatree-app-stage-inner {
-  position: relative;
-  z-index: 2;
+.omegatree-app-stage-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  overflow: visible;
 }
 
 .omegatree-app-stage-content {
@@ -1440,24 +1685,78 @@ body {
 }
 
 .omegatree-app-stage-visual {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  justify-self: end;
+  padding: 12px 0 28px 12px;
+  perspective: 1400px;
+}
+
+.omegatree-app-visual-frame {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1400px) rotateY(-16deg) rotateX(5deg) rotateZ(1.5deg);
+  transform-origin: center right;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: otAppTiltFloat 7s ease-in-out infinite;
+}
+
+.omegatree-app-visual-frame:hover {
+  transform: perspective(1400px) rotateY(-12deg) rotateX(3deg) rotateZ(0.5deg) translateY(-6px);
+}
+
+.omegatree-app-visual-frame::before {
+  content: '';
   position: absolute;
-  top: 50%;
-  right: -12%;
-  z-index: 1;
-  width: min(920px, 72vw);
-  transform: translateY(-50%);
+  inset: 14px -18px -22px 18px;
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(58, 157, 114, 0.14) 0%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+  border: 1px solid rgba(58, 157, 114, 0.14);
+  box-shadow: 0 20px 40px rgba(58, 157, 114, 0.1);
+  transform: translateZ(-48px) rotateY(-6deg);
   pointer-events: none;
 }
 
+.omegatree-app-visual-glow {
+  position: absolute;
+  inset: 8% -10% -12% 0;
+  background: radial-gradient(
+    ellipse at 65% 45%,
+    rgba(58, 157, 114, 0.28) 0%,
+    rgba(206, 255, 241, 0.12) 42%,
+    transparent 72%
+  );
+  filter: blur(28px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes otAppTiltFloat {
+  0%,
+  100% {
+    transform: perspective(1400px) rotateY(-16deg) rotateX(5deg) rotateZ(1.5deg) translateY(0);
+  }
+  50% {
+    transform: perspective(1400px) rotateY(-14deg) rotateX(4deg) rotateZ(1deg) translateY(-8px);
+  }
+}
+
 .omegatree-app-browser {
-  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+  border-radius: 18px;
   overflow: hidden;
   background: #fff;
   box-shadow:
-    0 24px 48px rgba(15, 23, 42, 0.08),
-    0 0 0 1px var(--ot-line-soft);
-  transform: perspective(1200px) rotateY(-5deg) rotateX(1deg);
-  transform-origin: center right;
+    0 36px 72px rgba(15, 23, 42, 0.16),
+    0 16px 32px rgba(58, 157, 114, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.85);
+  backface-visibility: hidden;
 }
 
 .omegatree-app-browser-bar {
@@ -1503,8 +1802,8 @@ body {
 
 .omegatree-app-browser-screen {
   position: relative;
-  aspect-ratio: 16 / 10;
-  background: #f8fafc;
+  aspect-ratio: 1024 / 493;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef4f8 100%);
 }
 
 .omegatree-app-screen {
@@ -1512,17 +1811,28 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top left;
+  object-fit: contain;
+  object-position: top center;
   opacity: 0;
-  transform: scale(1.02);
+  transform: scale(1.015);
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: saturate(1.02) contrast(1.01);
 }
 
 .omegatree-app-screen.is-active {
   opacity: 1;
   transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .omegatree-app-visual-frame {
+    animation: none;
+  }
+
+  .omegatree-app-visual-frame:hover {
+    transform: perspective(1400px) rotateY(-16deg) rotateX(5deg) rotateZ(1.5deg);
+  }
 }
 
 @media (max-width: 991px) {
@@ -1534,27 +1844,32 @@ body {
     padding: 48px 0 56px;
   }
 
-  .omegatree-app-stage {
-    min-height: auto;
+  .omegatree-app-stage-grid {
+    grid-template-columns: 1fr;
   }
 
   .omegatree-app-stage-content {
     max-width: none;
-    margin-bottom: 28px;
   }
 
   .omegatree-app-stage-visual {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: calc(100% + 48px);
-    margin-right: -48px;
-    transform: none;
+    max-width: none;
+    justify-self: stretch;
+    padding: 0;
+    perspective: none;
   }
 
-  .omegatree-app-browser {
+  .omegatree-app-visual-frame {
     transform: none;
-    border-radius: 14px 0 0 14px;
+    animation: none;
+  }
+
+  .omegatree-app-visual-frame::before {
+    display: none;
+  }
+
+  .omegatree-app-visual-frame:hover {
+    transform: none;
   }
 }
 
@@ -1587,11 +1902,6 @@ body {
   .omegatree-app-showcase {
     margin-top: 40px;
     padding: 40px 0 48px;
-  }
-
-  .omegatree-app-stage-visual {
-    width: calc(100% + 24px);
-    margin-right: -24px;
   }
 
   .omegatree-app-title {

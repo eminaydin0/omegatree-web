@@ -1,6 +1,9 @@
-import React from 'react'
-import HomePage from './pages/HomePage'
+import AinotionLanding from './pages/AinotionLanding'
+import useAinotionScripts from './hooks/useAinotionScripts'
+import './ainotion.css'
 
 export default function App() {
-  return <HomePage />
+  useAinotionScripts()
+
+  return <AinotionLanding />
 }

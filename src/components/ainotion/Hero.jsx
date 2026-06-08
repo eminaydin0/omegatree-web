@@ -36,6 +36,13 @@ export default function Hero() {
             </div>
             <div className="col-12 col-md-6 small-device-space">
               <div className="hero-visual hero-animate hero-animate-5">
+                <svg className="hero-clip-defs" aria-hidden="true" width="0" height="0">
+                  <defs>
+                    <clipPath id="hero-photo-wave" clipPathUnits="objectBoundingBox">
+                      <path d="M0,0.03 Q0.5,0 1,0.03 L1,0.76 C0.96,0.82 0.92,0.74 0.88,0.8 C0.84,0.73 0.8,0.81 0.76,0.74 C0.72,0.82 0.68,0.75 0.64,0.81 C0.6,0.74 0.56,0.82 0.52,0.75 C0.48,0.81 0.44,0.74 0.4,0.8 C0.36,0.73 0.32,0.81 0.28,0.74 C0.24,0.82 0.2,0.75 0.16,0.81 C0.12,0.74 0.08,0.82 0.04,0.76 C0.02,0.79 0,0.77 0,0.76 Z" />
+                    </clipPath>
+                  </defs>
+                </svg>
                 <div className="hero-photo-tilt">
                   <div className="hero-photo-glow" aria-hidden="true"></div>
                   <div className="hero-photo-frame">
@@ -45,7 +52,6 @@ export default function Hero() {
                       className="hero-photo"
                     />
                   </div>
-                  <span className="hero-photo-accent" aria-hidden="true"></span>
                 </div>
               </div>
             </div>
